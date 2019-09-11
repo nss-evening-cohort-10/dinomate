@@ -9,5 +9,22 @@ const printToDom = (divId, textToPrint) => {
 };
 
 const employeeStringBuilder = (ninjas)  => {
-
+  let domString = '';
+  for(let i = 0; i < ninjas.length; i++){
+    let employee = ninjas[i];
+    domString += `
+      <div class="col-4">
+        <div class="card">
+          <img src=${employee.imageUrl} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">${employee.name}</h5>
+            <p class="card-text">${employee.title}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  printToDom('employees-zone', domString);
 };
+
+employeeStringBuilder(employees);
